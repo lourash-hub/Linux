@@ -34,10 +34,12 @@ pwd [option]
 
 ```markdown
 cd ..
-``` moves one directory up.
+``` 
+moves one directory up.
 ```markdown
 cd -
-``` moves to your previous directory.
+``` 
+moves to your previous directory.
 
 - **Usage**: `cd [/home/lourash/Todo/routes]` changes the current directory.
   - Running `cd` without any arguments takes you to the home directory.
