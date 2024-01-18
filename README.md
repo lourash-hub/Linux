@@ -257,4 +257,71 @@ du /home/ubuntu/CommandsLinux
 ![DU](./Image/DU.png)
 
 Adding a flag to the du command will modify the operation, such as:
--s offers the total size of a specified folder. -m provides folder and file information in MB k displays information in KB. -h informs the last modification date of the displayed folders and les.
+-s offers the total size of a specified folder. -m provides folder and file information in MB k displays information in KB. -h informs the last modification date of the displayed folders and files.
+
+![DU_1](./Image/DU_1.png)
+
+
+17. head command:
+The head command allows you to view the rst ten lines of a text. Adding an option lets you change the number of lines shown. The head command is also used to output piped data to the CLI.
+Here’s the general syntax:
+
+```markdown
+ head [option] [file]
+```
+
+
+For instance, you want to view the first ten lines of deploy1.yml, located in the current directory:
+ 
+-n or –lines prints the rst customized number of lines. For example, enter head -n 5 filename.txt to show the first five lines of filename.txt. -c or –bytes prints the first customized number of bytes of each file. -q or –quiet will not print headers specifying the file name.
+
+
+![Head](./Image/Head.png)
+
+
+18.	**tail command:**
+The tail command displays the last ten lines of a file. It allows users to check whether a file has new data or to read error messages.
+Here’s the general format:
+
+```markdown
+tail [option] [file]
+```
+For example, you want to show the last ten lines of the create_ec2.yml file:
+
+![tail](./Image/Tail.png)
+
+19.	diff command:
+Short for difference, the diff command compares two contents of a file line by line. After analyzing them, it will display the parts that do not match.
+Programmers often use the diff command to alter a program instead of rewriting the entire source code.
+Here’s the general format:
+```markdown
+diff [option] file1 file2
+```
+For example, you want to compare two files – file1.txt and create_ec2.yml
+ 
+ 
+```markdown
+diff create_ec2.yml file1.txt
+```
+ 
+
+Here are some acceptable options to add:
+-c displays the difference between two files in a context form. -u displays the output without redundant information. -i makes the diff command case insensitive.
+
+![Diff](./Image/Diff.png)
+
+20. tar command:
+The tar command archives multiple les into a TAR le – a common Linux format similar to ZIP, with optional compression.
+Here’s the basic syntax:
+ 	
+ 
+ 
+
+For instance, you want to create a new TAR archive named newarchive.tar in the /home/ubuntu directory: you can edit the code below to suit your purpose.
+ 	
+ 
+ 
+
+The tar command accepts many options, such as: -x extracts a le.
+-t	lists the content of a le.
+-u	archives and adds to an existing archive le.
