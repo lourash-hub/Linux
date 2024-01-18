@@ -181,3 +181,80 @@ rm filename -i
 ```markdown
 rm filename -f
 ```
+
+11.	touch command:
+The touch command allows you to create an empty le or generate and modify a timestamp in the Linux command line.
+For example, enter the following command to create an HTML file named Web in the Documents directory:
+
+```markdown
+touch sqlite_commands.sh
+```
+
+![TOUCH](./Image/touch_sqlite.png)
+
+
+12.	locate command:
+The locate command can find a file in the database system.
+Moreover, adding the -i argument will turn off case sensitivity, so you can search for a le even if you don’t remember its exact name.
+To look for content that contains two or more words, use an asterisk (*). For example:
+```markdown
+locate -i school*note
+```
+The command will search for files that contain the words school 
+
+![Locate](./Image/Locate.png)
+
+13.	find command:
+Use the find command to search for files within a specific directory and perform subsequent operations. Here’s the general syntax:
+ 
+```markdown
+ find [option] [path] [expression]
+```
+
+
+For example, you want to look for a file called sql_commands.sh within the home directory and its subfolders:
+ 
+Here are other variations when using find:
+find -name filename.txt to find files in the current directory. find ./ -type d -name directoryname to look for directories.
+![FIND](./Image/find.png)
+
+14.	grep command:
+Another basic Linux command on the list is grep or global regular expression print. It lets you find a word by searching through all the texts in a specific file.
+Once the grep command nds a match, it prints all lines that contain the specific pattern. This command helps filter through large log files.
+For example, you want to search for the word ec2 in the file1.txt file
+ 
+```markdown
+grep values sql_commands.sh
+```
+The command’s output will display lines that contain ec2.
+
+![GREP](./Image/Grep.png)
+
+15.	df command:
+Use the df command to report the system’s disk space usage, shown in percentage and kilobyte (KB). Here’s the general syntax:
+ 
+ 
+```bash
+df [options] [file]
+```
+For example, enter the following command if you want to see the current directory’s system disk space usage in a humanreadable format:
+ 
+These are some acceptable options to use:
+df -m displays information on the file system usage in MBs. df -k displays file system usage in KBs. df -T shows the file system type in a new column.
+
+
+![DF](./Image/DF.png)
+
+
+16.	du command:
+If you want to check how much space a file or a directory takes up, use the du command. You can run this command to identify which part of the system uses the storage excessively.
+Remember, you must specify the directory path when using the du command. For example, to check /home/ubuntu/CommandLinux enter:
+
+```markdown
+du /home/ubuntu/CommandsLinux
+```
+
+![DU](./Image/DU.png)
+
+Adding a flag to the du command will modify the operation, such as:
+-s offers the total size of a specified folder. -m provides folder and file information in MB k displays information in KB. -h informs the last modification date of the displayed folders and les.
