@@ -1,4 +1,4 @@
-"# Linux File Manipulation" 
+Linux File Manipulation
 
 Basic Linux Commands: Introduction to command line operations, file and directory management.
 
