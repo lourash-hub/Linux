@@ -171,7 +171,9 @@ To remove multiple files, enter the following command:
  rm filename
 ```
  
-Copy Below Code rm filename1 filename2 filename3
+```markdown
+rm filename1 filename2 filename3
+```
 Here are some acceptable options you can add:
 -i prompts system confirmation before deleting a file. 
 ```markdown
@@ -311,17 +313,390 @@ Here are some acceptable options to add:
 ![Diff](./Image/Diff.png)
 
 20. tar command:
-The tar command archives multiple les into a TAR le – a common Linux format similar to ZIP, with optional compression.
+The tar command archives multiple files into a TAR file – a common Linux format similar to ZIP, with optional compression.
 Here’s the basic syntax:
  	
- 
+ ```markdown
+ tar [options] [archive_file] [file or directory to be archived]
+ ```
+
  
 
-For instance, you want to create a new TAR archive named newarchive.tar in the /home/ubuntu directory: you can edit the code below to suit your purpose.
+For instance, you want to create a new TAR archive named newarchive.tar in the /home/lourash directory: you can edit the code below to suit your purpose.
+ 	
+```markdown
+ tar -cvf newarchive.tar /home/lourash
+```
+
+ 
+
+The tar command accepts many options, such as: -x extracts a file.
+-t	lists the content of a file.
+-u	archives and adds to an existing archive file.
+
+![Tar](./Image/Tar.png)
+
+**Introduction to Linux and Basic Commands**
+Linux is a family of open-source Unix operating systems based on the Linux Kernel. They include Ubuntu, Fedora, Debian, openSUSE, and Red Hat. Using Linux to manage a Virtual Private Server (VPS) is common practice.
+When operating Linux, you need to use a shell – a program that gives you access to the operating system’s services. Most Linux distributions use a graphical user interface (GUI), making them beginner-friendly.
+However, we recommend utilizing the command-line interface (CLI) because it’s quicker and offers more control. Tasks that require multiple steps on the GUI can be done in a matter of seconds by entering commands into the CLI.
+So if you want to use Linux, learning the common utilities or commands will go a long way.
+What Is a Linux Command?
+A Linux command is a program or utility that runs on the CLI – a console that interacts with the system via texts and processes. It’s similar to the Command Prompt application in Windows.
+Linux commands are executed on Terminal by pressing Enter at the end of the line. You can run commands to perform various tasks, from package installation to user management and file manipulation.
+Here’s what a Linux command’s general syntax looks like:
+
+```markdown
+CommandName [option(s)] [parameter(s)]
+```
+
+A command may contain an option or a parameter. In some cases, it can still run without them. These are the three most common parts of a command:
+
+CommandName is the rule that you want to perform. Option or flag modifies a command’s operation. To invoke it, use hyphens (–) or double hyphens (—).
+Parameter or argument specifies any necessary information for the command.
+
+TAKE NOTE
+1.	All Linux commands are case-sensitive
+2.	For persons who do not have access to a linux machine you can access a light weight linux machine [here](https://bellard.org/jslinux/) free of charges
+If you have clicked on the link above, pick a linux machine
+
+![Image](./Image/Linux.png)
+
+Then, wait for sometime for it to come up. There you go! you have your linux machine. With it you can practice all your linux commands
+
+![Image](./Image/Picture1.png)
+
+
+File Permissions and Ownership
+21. chmod command:
+chmod is a common command that modifies a file or directory’s read, write, and execute permissions. In Linux, each file is associated with three user classes – owner, group member, and others.
+Here’s the basic syntax:
+ 	
+```markdown
+chmod [option] [permission] [file_name]
+```
+ 
+For example, the owner is currently the only one with full permissions to change note.txt. To allow group members and others to read, write, and execute the file, change it to the -rwxrwxrwx permission type, whose numeric value is 777:
+
+```markdown
+chmod 777 ping.yml
+```
+
+![CHMOD](./Image/CHMOD.png)
+
+This command supports many options, including:
+-c or –changes displays information when a change is made. -f or –silent suppresses the error messages. -v or –verbose displays a diagnostic for each processed file.
+
+22.	chown command:
+The chown command lets you change the ownership of a file, directory, or symbolic link to a specified username.
+Here’s the basic format:
+ 	
+```markdown
+chown [option] owner[:group] file(s)
+```
+ 
+For example, you want to make lourash the owner of file1.txt:
+ 
+ 
+```markdown
+chown lourash file1.txt
+```
+![CHOWN](./Image/CHOWN.png)
+
+23.	jobs command:
+A job is a process that the shell starts. The jobs command will display all the running processes along with their statuses.
+Remember that this command is only available in csh, bash, tcsh, and ksh shells.
+This is the basic syntax:
+ 
+ 
+```markdown
+jobs [options] jobID
+```
+To check the status of jobs in the current shell, simply enter jobs to the CLI.
+Here are some options you can use:
+-l lists process IDs along with their information. -n lists jobs whose statuses have changed since the last notification. -p lists process IDs only.
+
+![Job](./Image/Jobs.png)
+
+24. kill command:
+Use the kill command to terminate an unresponsive program manually. It will signal misbehaving applications and instruct them to close their processes.
+To kill a program, you must know its process identification number (PID). If you don’t know the PID, run the following command:
  	
  
  
 
-The tar command accepts many options, such as: -x extracts a le.
--t	lists the content of a le.
--u	archives and adds to an existing archive le.
+After knowing what signal to use and the program’s PID, enter the following syntax:
+ 
+ 
+```bash
+kill [signal_option] pid
+```
+There are 64 signals that you can use, but these two are among the most commonly used:
+SIGTERM requests a program to stop running and gives it some time to save all of its progress. The system will use this by default if you don’t specify the signal when entering the kill command. SIGKILL forces programs to stop, and you will lose unsaved progress. For example, the program’s PID is 63773, and you want to force it to stop:
+ 
+ ![PS_UX](./Image/PS_UX.png)
+ 
+```markdown
+kill SIGKILL 1059
+```
+
+25.	ping command:
+The ping command is one of the most used basic Linux commands for checking whether a network or a server is reachable.
+In addition, it is used to troubleshoot various connectivity issues.
+Here’s the general format:
+ 	
+ 
+ 
+
+For example, you want to know whether you can connect to Google and measure its response time:
+ 
+ 
+```markdown
+ping google.com
+```
+ ![Ping](./Image/Ping.png)
+
+
+ 26.	wget command:
+The Linux command line lets you download files from the internet using the wget command. It works in the background without hindering other running processes.
+The wget command retrieves les using HTTP, HTTPS, and FTP protocols. It can perform recursive downloads, which transfer website parts by following directory structures and links, creating local versions of the web pages.
+To use it, enter the following command:
+ 
+ 
+```markdown
+wget [option] [url]
+```
+
+For example, enter the following command to download the latest version of WordPress:
+ 	
+```markdown
+wget https://wordpress.org/latest.zip
+```
+![PWGET](./Image/wget.png)
+ 
+27.	uname command:
+The uname or unix name command will print detailed information about your Linux system and hardware. This includes the machine name, operating system, and kernel. To run this command, simply enter uname into your CLI.
+Here’s the basic syntax:
+ 	
+```markdown
+ uname [option]
+```
+These are the acceptable options to use:
+-a prints all the system information. -s prints the kernel name. -n prints the system’s node hostname.
+
+![uname](./Image/uname.png)
+
+
+28.	top command:
+The top command in Linux Terminal will display all the running processes and a dynamic real-time view of the current system. It sums up the resource utilization, from CPU to memory usage.
+The top command can also help you identify and terminate a process that may use too many system resources.
+To run the command, simply enter top into the CLI.
+ 	
+```bash
+top
+```
+
+![TOP](./Image/top.png)
+
+
+29.	history command:
+With history, the system will list up to 500 previously executed commands, allowing you to reuse them without reentering. Keep in mind that only users with sudo privileges can execute this command. How this utility runs also depends on which Linux shell you use.
+To run it, enter the command below:
+```markdown
+history [option]
+```
+This command supports many options, such as:
+-c clears the complete history list. -d offset deletes the history entry at the OFFSET position. -a appends history lines.
+
+![History](./Image/History.png)
+
+30.	man command:
+The man command provides a user manual of any commands or utilities you can run in Terminal, including the name, description, and options.
+It consists of nine sections:
+Executable programs or shell commands System calls Library calls Games Special files File formats and conventions System administration commands Kernel routines Miscellaneous To display the complete manual, enter:
+ 
+ 
+```markdown
+man [command_name]
+```
+For example, you want to access the manual for the ls command:
+ 	
+```markdown
+man ls
+```
+Enter this command if you want to specify the displayed section:
+```markdown
+man [option] [section_number] [command_name]
+```
+ 
+For instance, you want to see section 2 of the ls command manual:
+```markdown
+man 2 ls
+```
+![man_command](./Image/man_ls.png)	
+ 
+ 
+31.	echo command:
+The echo command is a built-in utility that displays a line of text or string using the standard output. Here’s the basic syntax:
+```markdown
+echo [option] [string]
+```
+This command supports many options, such as:
+-n displays the output without the trailing newline. -e enables the interpretation of the following backslash escapes: \a plays sound alert. \b removes spaces in between a text. \c produces no further output. -E displays the default option and disables the interpretation of backslash escapes.
+
+![Echo](./Image/Echo.png)	
+
+32. zip, unzip commands:
+Use the zip command to compress your files into a ZIP file, a universal format commonly used on Linux. It can automatically choose the best compression ratio.
+The zip command is also useful for archiving files and directories and reducing disk usage.
+To use it, enter the following syntax:
+ 
+ 
+```markdown
+zip [options] zipfile file1 file2….
+```
+For example, you have a file named note.txt that you want to compress into archive.zip in the current directory:
+```markdown
+zip archive.zip note.txt
+```
+
+![Zip](./Image/Zip.png)	
+On the other hand, the unzip command extracts the zipped files from an archive. Here’s the general format:
+ 
+ 
+ ```markdown
+ unzip [option] file_name.zip
+ ```
+So, to unzip a file called archive.zip in the current directory, enter:
+ ```markdown
+ unzip archive.zip
+ ```
+ ![Unzip](./Image/Unzip.png)	
+
+
+33.  hostname command:
+Run the hostname command to know the system’s hostname. You can execute it with or without an option. Here’s the general syntax:
+ 
+ 
+```markdown
+hostname [option]
+```
+There are many optional flags to use, including:
+-a or –alias displays the hostname’s alias. -A or –all-fqdns displays the machine’s Fully Quali ed Domain Name (FQDN). -i or –ip-address displays the machine’s IP address. For example, enter the following command to know your computer’s IP address:
+
+![Hostname](./Image/Hostname.png)
+ 
+ 
+
+34. useradd, userdel commands:
+Linux is a multi-user system, meaning more than one person can use it simultaneously. useradd is used to create a new account, while the passwd command allows you to add a password. Only those with root privileges or sudo can run the useradd command.
+When you use the useradd command, it performs some major changes:
+Edits the /etc/passwd, /etc/shadow, /etc/group, and /etc/gshadow les for the newly created accounts. Creates and populates a home directory for the user. Sets le permissions and ownerships to the home directory. Here’s the basic syntax:
+ 
+ 
+```markdown
+useradd [option] username To set the password:
+```
+```markdown
+passwd the_password_combination
+```
+For example, to add a new person named John, enter the following command simultaneously:
+```markdown
+sudo useradd John
+sudo passwd 123456789
+```
+To delete a user account, use the userdel command:
+ 
+```markdown
+ userdel username
+```
+35.	apt-get command:
+apt-get is a command line tool for handling Advanced Package Tool (APT) libraries in Linux. It lets you retrieve information and bundles from authenticated sources to manage, update, remove, and install software and its dependencies.
+Running the apt-get command requires you to use sudo or root privileges.
+Here’s the main syntax:
+```markdown
+apt-get [options] (command)
+```
+These are the most common commands you can add to apt-get:
+update synchronizes the package files from their sources. upgrade installs the latest version of all installed packages. check updates the package cache and checks broken dependencies.
+
+![APT](./Image/APT.png)
+
+36.	nano, vi, jed commands:
+Linux allows users to edit and manage files via a text editor, such as nano, vi, or jed. nano and vi come with the operating system, while jed has to be installed.
+The nano command denotes keywords and can work with most languages. To use it, enter the following command:
+ 
+ 
+```markdown
+nano [filename]
+```
+vi uses two operating modes to work – insert and command. insert is used to edit and create a text file. On the other hand, the command performs operations, such as saving, opening, copying, and pasting a file.
+To use vi on a fie, enter:
+ 	
+```markdown
+ vi [filename]
+```
+
+ 
+
+jed has a drop-down menu interface that allows users to perform actions without entering keyboard combinations or commands. Like vi, it has modes to load modules or plugins to write speci c texts.
+To open the program, simply enter jed to the command line.
+
+
+37.	alias, unalias commands:
+alias allows you to create a shortcut with the same functionality as a command, file name, or text. When executed, it instructs the shell to replace one string with another.
+To use the alias command, enter this syntax:
+```markdown
+alias Name=String
+```
+For example, you want to make k the alias for the kill command:
+ ```markdown
+ alias k=’kill’
+ ```
+	
+ ![Alias](./Image/Alias.png)
+ 
+
+On the other hand, the unalias command deletes an existing alias.
+Here’s what the general syntax looks like:
+ 
+ 
+```markdown
+unalias [alias_name]
+```
+
+38.	su command:
+The switch user or su command allows you to run a program as a different user. It changes the administrative account in the current log-in session. This command is especially beneficial for accessing the system through SSH or using the GUI display manager when the root user is unavailable.
+Here’s the general syntax of the command:
+ 
+ 
+```markdown
+su [options] [username [argument]]
+```
+When executed without any option or argument, the su command runs through root privileges. It will prompt you to authenticate and use the sudo privileges temporarily.
+Here are some acceptable options to use:
+-p or –preserve-environment keeps the same shell environment, consisting HOME, SHELL, USER, and LOGNAME. -s or – shell lets you specify a different shell environment to run. -l or –login runs a login script to switch to a different username.
+Executing it requires you to enter the user’s password.
+39. htop command:
+The htop command is an interactive program that monitors system resources and server processes in real time. It is available on most Linux distributions, and you can install it using the default package manager.
+Compared to the top command, htop has many improvements and additional features, such as mouse operation and visual indicators.
+To use it, run the following command:
+ 	
+```markdown
+ htop [options]
+```
+
+ 
+
+You can also add options, such as:
+-d or –delay shows the delay between updates in tenths of seconds. -C or –no-color enables the monochrome mode. -h or – help displays the help message and exit.
+![HTOP](./Image/HTOP.png)
+
+40. ps command:
+The process status or ps command produces a snapshot of all running processes in your system. The static results are taken from the virtual files in the /proc file system.
+Executing the ps command without an option or argument will list the running processes in the shell along with:
+The unique process ID (PID) The type of the terminal (TTY) The running time (TIME) The command that launches the process (CMD)
+Here are some acceptable options you can use:
+-T displays all processes associated with the current shell session. -u username lists processes associated with a specific user. -A or -e shows all the running processes.
+
+![PS](./Image/PS.png)
